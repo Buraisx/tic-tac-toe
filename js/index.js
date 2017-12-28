@@ -2,6 +2,7 @@ var boardRows = new Array(3)
 document.addEventListener('DOMContentLoaded',function(){
 	var player = 'X'
 	var won = false
+	var moves = 0
 	// creating and styling the table
 	board = document.createElement('table')
 	display = document.createElement('div')
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			col.style.textAlign = 'center'
 
 			col.onclick = function(){
+				moves++
 				this.innerText = player
 				boardRows[this.parentElement.rowIndex][this.cellIndex] = player
 				checkHorizontal(this.parentElement.rowIndex)
@@ -52,6 +54,9 @@ document.addEventListener('DOMContentLoaded',function(){
 				entry[item].onclick = null
 			}
 			display.innerText = `Player:${player} has won!! Congratulate them on this amazing feat`
+			return false
+		}else if (moves == 9){
+			display.innerText = `Its a draw!!! Amazing!!!`
 			return false
 		}
 		return true
