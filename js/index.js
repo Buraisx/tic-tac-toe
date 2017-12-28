@@ -1,5 +1,4 @@
 var boardRows = new Array(3)
-
 document.addEventListener('DOMContentLoaded',function(){
 	var player = 'X'
 	var won = false
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			col = row.insertCell(cols)
 			col.style.border = '1px solid black'
 			col.style.textAlign = 'center'
+
 			col.onclick = function(){
 				this.innerText = player
 				boardRows[this.parentElement.rowIndex][this.cellIndex] = player
@@ -41,14 +41,17 @@ document.addEventListener('DOMContentLoaded',function(){
 				if (checkWon()){
 					switchPlayer()
 				}
-
 				this.onclick = null
 			}		
 		}
 	}//end of board creation
 	function checkWon(){
 		if (won === true){
-			display.innerText = `Player:${player} has won!! Congratulate them for this amazing feat`
+			var entry = document.querySelectorAll('td')
+			for (var item = 0; item < 9; item++) {
+				entry[item].onclick = null
+			}
+			display.innerText = `Player:${player} has won!! Congratulate them on this amazing feat`
 			return false
 		}
 		return true
@@ -61,7 +64,6 @@ document.addEventListener('DOMContentLoaded',function(){
 			player = 'X'
 		}
 		display.innerText = `Player:${player}'s turn`
-
 	}
 	// check winning conditions
 	function checkHorizontal(row){
@@ -79,7 +81,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		if(boardRows[0][0] === player && boardRows[1][1] === player && boardRows[2][2] === player || boardRows[0][2] === player && boardRows[1][1] === player && boardRows[2][0] === player){
 			won = true
 		}
-		
-
 	}
+
 })
