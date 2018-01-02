@@ -1,12 +1,12 @@
 #TicTacToe algorithm<br>
 ======================
 if you get three in a row, win<br>
-After the first you click or enter a number, of you check for win cons<br>
+After the first click or you enter a number, you check for win cons<br>
 There are 3 types of win cons<br>
-Vertical Horizontal and diagonal<br>
+Vertical, Horizontal, and diagonal<br>
 How do we properly display a board?<br>
 2d array<br>
-How do we use a 2d array to check for win con<br>
+How do we use a 2d array to check for win con?<br>
 
 #Horizontal:<br>
 ==============
@@ -34,6 +34,6 @@ Checks [0][0], [1][1],[2][2] or [0][2],[1][1],[2][0]<br>
 
 #Issues:<br>
 =============
-efficiency issues, every click we are checking all of the wincons when we don’t need to<br>
-dont need to check unless 5 moves have been made<br>
+efficiency issues. every click, we are checking all of the wincons when we don’t need to<br>
+Dont need to check unless 5 moves have been made<br>
 Don’t need to check diagonal unless placement is [0][0], [0][2],[1][1],[2][0], or [2][2]<br>
